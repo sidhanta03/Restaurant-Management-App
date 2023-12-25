@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Restaurant</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="index.html">BistroPal
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="restaurant.html">Restaurant Listing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="add-restaurant.html">Add Restaurant</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+        <h1 class="pt-4 mb-4">View Restaurant</h1>
+
+        <!-- Display restaurant details -->
+        <div id="viewRestaurantDetails" class="card">
+            <div class="card-body">
+                <h5 class="card-title" id="viewRestaurantName"></h5>
+                <p class="card-text"><strong>Cuisine:</strong> <span id="viewCuisine"></span></p>
+                <p class="card-text"><strong>Address:</strong> <span id="viewAddress"></span></p>
+                <p class="card-text"><strong>City:</strong> <span id="viewCity"></span></p>
+                <p class="card-text"><strong>Rating:</strong> <span id="viewRating"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Retrieve selected restaurant index and data from sessionStorage
+        var selectedRestaurantData = JSON.parse(sessionStorage.getItem('selectedRestaurantData'));
+
+        // Populate the view with the selected restaurant data
+        document.getElementById('viewRestaurantName').textContent = selectedRestaurantData.name;
+        document.getElementById('viewCuisine').textContent = selectedRestaurantData.cuisine;
+        document.getElementById('viewAddress').textContent = selectedRestaurantData.address;
+        document.getElementById('viewCity').textContent = selectedRestaurantData.city;
+        document.getElementById('viewRating').textContent = selectedRestaurantData.rating;
+    </script>
+</body>
+</html>
